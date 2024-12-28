@@ -1,0 +1,237 @@
+/*
+====================================
+CSS Stylesheet for Responsive Tic-Tac-Toe Game
+====================================
+This stylesheet ensures a visually appealing and responsive design for the Tic-Tac-Toe game across various devices.
+Each section is well-documented for easy understanding and future modifications.
+*/
+
+/* Reset margins, paddings, and apply consistent box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and borders in element dimensions */
+  }
+  
+  /* Styling for the body */
+  body {
+    background-color: #213555; /* Dark background color */
+    font-family: Arial, sans-serif; /* Clean and modern font */
+  }
+  
+  /* Center and style the main heading */
+  h1 {
+    color: #d8c4b6; /* Light beige color */
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-size: 4vh; /* Responsive font size */
+  }
+  
+  /* Center-align the main content */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Styling for the message container (hidden by default) */
+  #messageContainer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Styling the game container (grid layout for the game) */
+  #gameContainer {
+    height: 60vh;
+    width: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5vh; /* Space between boxes */
+  }
+  
+  /* Styling individual boxes (game cells) */
+  .box {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 5vh; /* Rounded corners */
+    font-size: 6vh; /* Responsive font size */
+    background-color: #d8c4b6; /* Light beige color */
+    color: #3e5879; /* Dark text color */
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    border: 3px solid transparent; /* Transparent border */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  }
+  
+  /* Hover effect for the game boxes */
+  .box:hover {
+    transform: scale(1.05); /* Slight enlargement */
+    background-color: #f5efe7; /* Lighter background on hover */
+    border-color: #3e5879; /* Highlight border */
+  }
+  
+  /* Styling the reset button */
+  #resetButton {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 5vh;
+    width: 15vh;
+    font-size: 2.5vh; /* Responsive font size */
+    color: #3e5879; /* Dark text color */
+    font-weight: 800; /* Bold text */
+    border-radius: 3vh; /* Rounded corners */
+    background-color: #d8c4b6; /* Light beige color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor for buttons */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  }
+  
+  /* Hover effect for the reset button */
+  #resetButton:hover {
+    transform: scale(1.1); /* Slight enlargement */
+    background-color: #3e5879; /* Darker background on hover */
+    color: #d8c4b6; /* Light text color */
+  }
+  
+  /* Styling the new game button */
+  #newButton {
+    margin-top: 1.5vh;
+    height: 5vh;
+    width: 15vh;
+    font-size: 2.5vh;
+    color: #3e5879;
+    font-weight: 800;
+    border-radius: 3vh;
+    background-color: #d8c4b6;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the new game button */
+  #newButton:hover {
+    transform: scale(1.1);
+    background-color: #3e5879;
+    color: #d8c4b6;
+  }
+  
+  /* Add keyframes for a glowing effect */
+  @keyframes glow {
+    0% {
+      background-color: #D8C4B6;
+      box-shadow: 0 0 10px #D8C4B6;
+    }
+    50% {
+      background-color: #F5EFE7;
+      box-shadow: 0 0 20px #F5EFE7;
+    }
+    100% {
+      background-color: #D8C4B6;
+      box-shadow: 0 0 10px #D8C4B6;
+    }
+  }
+  
+  /* Class for highlighting the winning boxes */
+  .winning-box {
+    animation: glow 1s infinite; /* Infinite glowing effect */
+  }
+  
+  /* Media Query: For tablets (max-width: 1023px) */
+  @media screen and (max-width: 1023px) {
+    h1 {
+      font-size: 3.5vh;
+    }
+  
+    #gameContainer {
+      height: 50vh;
+      width: 50vh;
+    }
+  
+    .box {
+      height: 15vh;
+      width: 15vh;
+      font-size: 5vh;
+    }
+  
+    #resetButton {
+      height: 4.5vh;
+      width: 12vh;
+      font-size: 2vh;
+    }
+  
+    #newButton {
+      height: 4.5vh;
+      width: 12vh;
+      font-size: 2vh;
+    }
+  }
+  
+  /* Media Query: For mobile phones (max-width: 480px) */
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 3vh;
+    }
+  
+    #gameContainer {
+      height: 45vh;
+      width: 45vh;
+    }
+  
+    .box {
+      height: 13vh;
+      width: 13vh;
+      font-size: 4.5vh;
+      border-radius: 3vh;
+    }
+  
+    #resetButton {
+      height: 4vh;
+      width: 10vh;
+      font-size: 1.8vh;
+    }
+  
+    #newButton {
+      height: 4vh;
+      width: 10vh;
+      font-size: 1.8vh;
+    }
+  }
+  
+  /* Media Query: For large screens (min-width: 1024px) */
+  @media screen and (min-width: 1024px) {
+    h1 {
+      font-size: 5vh;
+    }
+  
+    #gameContainer {
+      height: 70vh;
+      width: 70vh;
+    }
+  
+    .box {
+      height: 20vh;
+      width: 20vh;
+      font-size: 7vh;
+    }
+  
+    #resetButton {
+      height: 6vh;
+      width: 18vh;
+      font-size: 3vh;
+    }
+  
+    #newButton {
+      height: 6vh;
+      width: 18vh;
+      font-size: 3vh;
+    }
+  }
+  
